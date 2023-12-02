@@ -412,8 +412,6 @@ export interface ApiMembershipMembership extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    monthlyPrice: Attribute.Decimal;
     users: Attribute.Relation<
       'api::membership.membership',
       'oneToMany',
@@ -421,6 +419,11 @@ export interface ApiMembershipMembership extends Schema.CollectionType {
     >;
     startTime: Attribute.Date & Attribute.Required;
     endTIme: Attribute.Date;
+    membership_type: Attribute.Relation<
+      'api::membership.membership',
+      'oneToOne',
+      'api::membership-type.membership-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -432,6 +435,38 @@ export interface ApiMembershipMembership extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::membership.membership',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMembershipTypeMembershipType extends Schema.CollectionType {
+  collectionName: 'membership_types';
+  info: {
+    singularName: 'membership-type';
+    pluralName: 'membership-types';
+    displayName: 'Membership type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    monthlyPrice: Attribute.Decimal;
+    doorAccess: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::membership-type.membership-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::membership-type.membership-type',
       'oneToOne',
       'admin::user'
     > &
@@ -773,6 +808,7 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::bank-transaction.bank-transaction': ApiBankTransactionBankTransaction;
       'api::membership.membership': ApiMembershipMembership;
+      'api::membership-type.membership-type': ApiMembershipTypeMembershipType;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
