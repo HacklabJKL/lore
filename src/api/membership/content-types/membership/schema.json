@@ -4,7 +4,8 @@
   "info": {
     "singularName": "membership",
     "pluralName": "memberships",
-    "displayName": "Membership"
+    "displayName": "Membership",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,14 @@
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user",
       "mappedBy": "membership"
+    },
+    "startTime": {
+      "type": "date",
+      "required": true
+    },
+    "endTIme": {
+      "type": "date",
+      "required": false
     }
   }
 }

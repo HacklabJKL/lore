@@ -19,7 +19,19 @@
       "type": "decimal"
     },
     "date": {
-      "type": "date"
+      "type": "datetime"
+    },
+    "counterparty": {
+      "type": "string"
+    },
+    "filingId": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "descripiton": {
+      "type": "string"
     }
   }
 }
