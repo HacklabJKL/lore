@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bank_transactions",
+  "info": {
+    "singularName": "bank-transaction",
+    "pluralName": "bank-transactions",
+    "displayName": "Bank transaction",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reference": {
+      "type": "string"
+    },
+    "sum": {
+      "type": "decimal"
+    },
+    "date": {
+      "type": "date"
+    }
+  }
+}
