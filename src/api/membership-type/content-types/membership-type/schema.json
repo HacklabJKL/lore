@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "membership_types",
+  "info": {
+    "singularName": "membership-type",
+    "pluralName": "membership-types",
+    "displayName": "Membership type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "monthlyPrice": {
+      "type": "decimal"
+    },
+    "doorAccess": {
+      "type": "boolean"
+    }
+  }
+}

@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "monthlyPrice": {
-      "type": "decimal"
-    },
     "users": {
       "type": "relation",
       "relation": "oneToMany",
@@ -31,6 +25,11 @@
     "endTIme": {
       "type": "date",
       "required": false
+    },
+    "membership_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::membership-type.membership-type"
     }
   }
 }
