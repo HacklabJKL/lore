@@ -69,12 +69,6 @@
       "type": "string",
       "unique": true
     },
-    "membership": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::membership.membership",
-      "inversedBy": "users"
-    },
     "paymentReference": {
       "type": "string",
       "unique": true
@@ -89,6 +83,12 @@
         "videos",
         "audios"
       ]
+    },
+    "memberships": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::membership.membership",
+      "mappedBy": "user"
     }
   }
 }
