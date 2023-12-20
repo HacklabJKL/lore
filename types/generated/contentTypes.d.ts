@@ -412,17 +412,17 @@ export interface ApiMembershipMembership extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    users: Attribute.Relation<
-      'api::membership.membership',
-      'oneToMany',
-      'plugin::users-permissions.user'
-    >;
     startTime: Attribute.Date & Attribute.Required;
     endTIme: Attribute.Date;
     membership_type: Attribute.Relation<
       'api::membership.membership',
       'oneToOne',
       'api::membership-type.membership-type'
+    >;
+    user: Attribute.Relation<
+      'api::membership.membership',
+      'manyToOne',
+      'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -772,13 +772,13 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.role'
     >;
     matrixId: Attribute.String & Attribute.Unique;
-    membership: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'manyToOne',
-      'api::membership.membership'
-    >;
     paymentReference: Attribute.String & Attribute.Unique;
     avatar: Attribute.Media;
+    memberships: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::membership.membership'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

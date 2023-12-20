@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "users": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::users-permissions.user",
-      "mappedBy": "membership"
-    },
     "startTime": {
       "type": "date",
       "required": true
@@ -30,6 +24,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::membership-type.membership-type"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "memberships"
     }
   }
 }
