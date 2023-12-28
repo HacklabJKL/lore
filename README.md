@@ -13,7 +13,25 @@ Following JavaScript development packages are required from OS package manager e
 - NodeJS runtime (version >=18.0.0 <=20.x.x)
 - pnpm NodeJS package manager
 
-MacOS 14.1.2 example:
+#### Debian 12 example:
+
+```
+sudo apt install nodejs npm
+sudo npm install -g pnpm
+```
+
+Install Node Version Manager NVM [with script](https://github.com/nvm-sh/nvm#install--update-script) or [manually cloning repo](https://github.com/nvm-sh/nvm#git-install) as stated in official docs eg:
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+nvm install 20.10.0
+nvm use 20.10.0
+pnpm install
+```
+
+This may have some room to improvement in how global `pnpm` NPM package is installed via APT NPM while NVM itself handles global packages separately for different NodeJS versions, but probably works okay for most parts to get started.
+
+#### MacOS 14.1.2 example:
 ```
 brew install node pnpm nvm
 nvm install 20.10.0  # homebrew installs incompatible 21.x.x version by default
